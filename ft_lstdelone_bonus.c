@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolay-un <lolay-un@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/08 12:40:54 by lolay-un          #+#    #+#             */
-/*   Updated: 2019/11/27 13:28:10 by lolay-un         ###   ########.fr       */
+/*   Created: 2019/11/15 21:55:24 by lolay-un          #+#    #+#             */
+/*   Updated: 2019/11/26 11:19:17 by lolay-un         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-int	ft_isalpha(int c)
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (1);
-	return (0);
+	if (lst)
+	{
+		del(lst->content);
+		free(lst);
+	}
 }

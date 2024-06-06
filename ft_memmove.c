@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolay-un <lolay-un@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/08 12:40:54 by lolay-un          #+#    #+#             */
-/*   Updated: 2019/11/27 13:28:10 by lolay-un         ###   ########.fr       */
+/*   Created: 2019/11/08 12:39:15 by lolay-un          #+#    #+#             */
+/*   Updated: 2019/11/27 13:28:44 by lolay-un         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include <string.h>
 #include "libft.h"
 
-int	ft_isalpha(int c)
+void	*ft_memmove(void *str1, const void *str2, size_t n)
 {
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (1);
-	return (0);
+	unsigned char		*p_str1;
+	unsigned const char	*p_str2;
+
+	if (str1 < str2)
+		return (ft_memcpy(str1, str2, n));
+	p_str1 = (unsigned char*)str1;
+	p_str2 = (unsigned const char*)str2;
+	if (!n || str1 == str2)
+		return (str1);
+	while (n--)
+		p_str1[n] = p_str2[n];
+	return (str1);
 }

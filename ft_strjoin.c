@@ -1,20 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolay-un <lolay-un@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/08 12:40:54 by lolay-un          #+#    #+#             */
-/*   Updated: 2019/11/27 13:28:10 by lolay-un         ###   ########.fr       */
+/*   Created: 2019/11/12 18:40:39 by lolay-un          #+#    #+#             */
+/*   Updated: 2019/11/16 19:29:17 by lolay-un         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-int	ft_isalpha(int c)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (1);
-	return (0);
+	char	*str;
+	int		a;
+	int		b;
+	int		i;
+
+	if (!s1 || !s2)
+		return (NULL);
+	a = ft_strlen(s1);
+	b = ft_strlen(s2);
+	i = 0;
+	if (!(str = malloc((a + b + 1))) || !str)
+		return (NULL);
+	while (a--)
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	a = i;
+	i = 0;
+	while (b--)
+		str[a++] = s2[i++];
+	str[a] = '\0';
+	return (str);
 }

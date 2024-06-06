@@ -5,12 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolay-un <lolay-un@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 10:20:32 by lolay-un          #+#    #+#             */
-/*   Updated: 2023/12/19 14:14:45 by lolay-un         ###   ########.fr       */
+/*   Created: 2019/11/08 12:42:12 by lolay-un          #+#    #+#             */
+/*   Updated: 2019/11/27 13:28:13 by lolay-un         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isascii(int c)
+#include "libft.h"
+
+int	ft_isascii(int c)
 {
-    return (c >= 0 && c <= 127);
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
 }

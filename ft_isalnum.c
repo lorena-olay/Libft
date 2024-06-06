@@ -5,12 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolay-un <lolay-un@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 09:57:02 by lolay-un          #+#    #+#             */
-/*   Updated: 2023/12/19 10:16:21 by lolay-un         ###   ########.fr       */
+/*   Created: 2019/11/08 12:41:49 by lolay-un          #+#    #+#             */
+/*   Updated: 2019/11/27 13:28:08 by lolay-un         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalpha(int c)
+#include "libft.h"
+
+int	ft_isalnum(int c)
 {
-    return (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || c >= 0 && c <= 9);
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
+			|| (c >= '0' && c <= '9'))
+		return (1);
+	return (0);
 }

@@ -5,17 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolay-un <lolay-un@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/08 18:39:54 by lolay-un          #+#    #+#             */
-/*   Updated: 2024/01/08 19:22:01 by lolay-un         ###   ########.fr       */
+/*   Created: 2019/11/04 17:06:55 by lolay-un          #+#    #+#             */
+/*   Updated: 2019/11/27 13:29:18 by lolay-un         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strlen(const char *c)
+#include <unistd.h>
+#include <stdio.h>
+#include <string.h>
+#include "libft.h"
+
+size_t	ft_strlen(const char *str)
 {
-    int var = 0;
-    while (c[var] != '\0')
-    {
-        var++;
-    }
-    return var;
+	size_t i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }

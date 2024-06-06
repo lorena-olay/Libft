@@ -1,20 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolay-un <lolay-un@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/08 12:40:54 by lolay-un          #+#    #+#             */
-/*   Updated: 2019/11/27 13:28:10 by lolay-un         ###   ########.fr       */
+/*   Created: 2019/11/08 12:38:49 by lolay-un          #+#    #+#             */
+/*   Updated: 2019/11/27 13:28:33 by lolay-un         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include <string.h>
 #include "libft.h"
 
-int	ft_isalpha(int c)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (1);
-	return (0);
+	size_t			i;
+	unsigned char	*ptr_dst;
+	unsigned char	*ptr_src;
+
+	ptr_dst = (unsigned char*)dst;
+	ptr_src = (unsigned char*)src;
+	i = 0;
+	while (i < n)
+	{
+		ptr_dst[i] = ptr_src[i];
+		if (ptr_dst[i] == (unsigned char)c)
+		{
+			return ((void*)(dst + i + 1));
+		}
+		i++;
+	}
+	return (NULL);
 }

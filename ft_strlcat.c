@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolay-un <lolay-un@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/08 12:40:54 by lolay-un          #+#    #+#             */
-/*   Updated: 2019/11/27 13:28:10 by lolay-un         ###   ########.fr       */
+/*   Created: 2019/11/06 13:48:26 by lolay-un          #+#    #+#             */
+/*   Updated: 2019/11/27 13:29:08 by lolay-un         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 
-int	ft_isalpha(int c)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (1);
-	return (0);
+	size_t	londst;
+	size_t	lonsrc;
+	size_t	cont;
+
+	londst = ft_strlen(dst);
+	lonsrc = ft_strlen(src);
+	if (dstsize <= londst)
+		return (lonsrc + dstsize);
+	cont = londst;
+	while (*src != '\0' && cont < (dstsize - 1))
+		*(dst + cont++) = *src++;
+	*(dst + cont) = '\0';
+	return (londst + lonsrc);
 }

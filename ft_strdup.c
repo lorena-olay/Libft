@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_troupper.c                                      :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolay-un <lolay-un@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/08 20:07:59 by lolay-un          #+#    #+#             */
-/*   Updated: 2024/01/08 20:10:09 by lolay-un         ###   ########.fr       */
+/*   Created: 2019/11/14 15:52:44 by lolay-un          #+#    #+#             */
+/*   Updated: 2019/11/27 13:29:01 by lolay-un         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_troupper(int c)
+#include <string.h>
+#include "libft.h"
+#include <stdlib.h>
+
+char	*ft_strdup(const char *s1)
 {
-    if (c >= 'a' && c <= 'z') {
-        return c - ('a' - 'A'); 
-        //se convierte a mayúscula restando la diferencia entre el código ASCII de la letra minúscula y el de la letra mayúscula
-    } else {
-        return c;
-    }
+	char	*d;
+	char	*p_s1;
+	size_t	i;
+
+	p_s1 = (char*)s1;
+	i = 0;
+	d = (char*)malloc(ft_strlen(p_s1) + 1);
+	if (d == NULL)
+		return (NULL);
+	while (p_s1[i] != '\0')
+	{
+		d[i] = p_s1[i];
+		i++;
+	}
+	d[i] = '\0';
+	return (d);
 }
